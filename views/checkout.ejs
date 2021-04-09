@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>E Store - eCommerce HTML Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="eCommerce HTML Template Free Download" name="keywords">
+        <meta content="eCommerce HTML Template Free Download" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        
+    </head>
+
+    <body>
+        <!-- Top bar Start -->
+        <!-- <div class="top-bar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <i class="fa fa-envelope"></i>
+                        support@email.com
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fa fa-phone-alt"></i>
+                        +012-345-6789
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Top bar End -->
+        
+        <!-- Nav Bar Start -->
+        <%- include('header.ejs'); -%>
+        <!-- <div class="nav">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="product-list.html" class="nav-item nav-link">Products</a>
+                            <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
+                            <a href="cart.html" class="nav-item nav-link">Cart</a>
+                            <a href="checkout.html" class="nav-item nav-link active">Checkout</a>
+                            <a href="my-account.html" class="nav-item nav-link">My Account</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
+                                <div class="dropdown-menu">
+                                    <a href="wishlist.html" class="dropdown-item">Wishlist</a>
+                                    <a href="login.html" class="dropdown-item">Login & Register</a>
+                                    <a href="contact.html" class="dropdown-item">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navbar-nav ml-auto">
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item">Login</a>
+                                    <a href="#" class="dropdown-item">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div> -->
+        <!-- Nav Bar End -->      
+        
+        <!-- Bottom Bar Start -->
+        <!-- <div class="bottom-bar">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="img/logo.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="search">
+                            <input type="text" placeholder="Search">
+                            <button><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="user">
+                            <a href="wishlist.html" class="btn wishlist">
+                                <i class="fa fa-heart"></i>
+                                <span>(0)</span>
+                            </a>
+                            <a href="cart.html" class="btn cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>(0)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Bottom Bar End --> 
+        
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item active">Checkout</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        
+        <!-- Checkout Start -->
+        
+        <div class="checkout">
+            <div class="container-fluid"> 
+                <div class="row">
+                    
+                    <div class="col-lg-8">
+                        
+                           
+                        
+                        <div  >
+                                
+                                <table class="table table-hover" id="main">
+                                    <thead>
+                                    <tr>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    
+                                    <% result1.forEach(function (d) { %>
+                                        
+                                        <tr>
+                                          <td><a href="/edit-address/<%=d._id%>">edit</a> </td>
+                                          <td><button class="delbtn" value="<%=d._id%>">delete</button> </td>
+                                            <td><%- d.name %><%- d.mobile %></td>
+                                            <td> <%- d.address %>, <%- d.city %>,<%- d.state %>-<%- d.pincode %></td>
+                                            <td><a href="/payment">deliver here</a> </td>
+                                        </tr>
+                                        <% }); %>
+                                    
+                                </tbody>
+                                </table>
+                               
+                            </div>
+                            <div>
+                           
+                            </div>
+                        <div class="checkout-inner">
+                            <div class="billing-address">
+                               
+                        
+                                                 
+                                <h2>Delivery Address</h2>
+                                 
+                                <form  id="form_1">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label> Name</label>
+                                        <input class="form-control" type="text" name="name" placeholder=" Name" id="name">
+                                        <span id="adiv"></span>
+                                    </div>
+                                    <!-- <div class="col-md-6">
+                                        <label>Last Name"</label>
+                                        <input class="form-control" type="text" placeholder="Last Name">
+                                    </div> -->
+                                    <!-- <div class="col-md-6">
+                                        <label>E-mail</label>
+                                        <input class="form-control" type="text" name="email" placeholder="E-mail">
+                                    </div> -->
+                                    <div class="col-md-6">
+                                        <label>Mobile No</label>
+                                        <input class="form-control" type="number" name="mobile" id="mobile" placeholder="Mobile No">
+                                        <span id="bdiv"></span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Address</label>
+                                        <input class="form-control" type="text" name="address" id="address" placeholder="Address">
+                                        <span id="cdiv"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>State</label>
+                                        
+                                            <select name="state" id="state" class="custom-select">
+                                                <option value="disabald">--select state</option>
+                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+<option value="Assam">Assam</option>
+<option value="Bihar">Bihar</option>
+<option value="Chandigarh">Chandigarh</option>
+<option value="Chhattisgarh">Chhattisgarh</option>
+<option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+<option value="Daman and Diu">Daman and Diu</option>
+<option value="Delhi">Delhi</option>
+<option value="Lakshadweep">Lakshadweep</option>
+<option value="Puducherry">Puducherry</option>
+<option value="Goa">Goa</option>
+<option value="Gujarat">Gujarat</option>
+<option value="Haryana">Haryana</option>
+<option value="Himachal Pradesh">Himachal Pradesh</option>
+<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+<option value="Jharkhand">Jharkhand</option>
+<option value="Karnataka">Karnataka</option>
+<option value="Kerala">Kerala</option>
+<option value="Madhya Pradesh">Madhya Pradesh</option>
+<option value="Maharashtra">Maharashtra</option>
+<option value="Manipur">Manipur</option>
+<option value="Meghalaya">Meghalaya</option>
+<option value="Mizoram">Mizoram</option>
+<option value="Nagaland">Nagaland</option>
+<option value="Odisha">Odisha</option>
+<option value="Punjab">Punjab</option>
+<option value="Rajasthan">Rajasthan</option>
+<option value="Sikkim">Sikkim</option>
+<option value="Tamil Nadu">Tamil Nadu</option>
+<option value="Telangana">Telangana</option>
+<option value="Tripura">Tripura</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="Uttarakhand">Uttarakhand</option>
+<option value="West Bengal">West Bengal</option>
+                                        </select>
+                                        <span id="ddiv"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>City</label>
+                                        <input class="form-control" type="text" name="city" id="city" placeholder="City">
+                                        <span id="fdiv"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Landmark</label>
+                                        <input class="form-control" type="text" name="landmark"  placeholder="Landmark optional">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Pincode</label>
+                                        <input class="form-control" type="text" name="pincode" id="pincode" placeholder="Pincode">
+                                        <span id="gdiv"></span>
+                                    </div>
+                                   
+                                    <div class="col-md-6">
+                                        <label for="home"></label>
+                                        <input  type="radio" name="locationType" value="home" readonly>
+                                        <span>Home(all day delivery)</span>
+                                        <div>
+                                           
+                                        </div>
+</div>
+                                        <div class="col-md-6">
+                                        <label for="work"></label>
+                                        <input  type="radio" name="locationType" value="work" readonly>
+                                        <span>Work( delivery between 10AM - 5PM)</span>
+                                       
+                                        <div>
+                                          
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="submit" class="addbtn" value=" Add Address" />
+                                        <!-- <div class="text-center"><button class="btn btn-lg btn-success addbtn">Place Order here</button></div>  -->
+                                        <!-- <input  type="submit" name="submit" id="placeOrder" value="Place Order here" > -->
+                                    </div>
+                                    <!-- <span id = "status"></span> -->
+                                </form>
+                                    
+                                    <div class="col-md-12">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="shipto">
+                                            <label class="custom-control-label" for="shipto">Ship to different address</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <!-- <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="newaccount">
+                                            <label class="custom-control-label" for="newaccount">payment</label>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="shipping-address">
+                                <h2>Shipping Address</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>First Name</label>
+                                        <input class="form-control" type="text" placeholder="First Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Last Name"</label>
+                                        <input class="form-control" type="text" placeholder="Last Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>E-mail</label>
+                                        <input class="form-control" type="text" placeholder="E-mail">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Mobile No</label>
+                                        <input class="form-control" type="text" placeholder="Mobile No">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Address</label>
+                                        <input class="form-control" type="text" placeholder="Address">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Country</label>
+                                        <select class="custom-select">
+                                            <option selected>United States</option>
+                                            <option>Afghanistan</option>
+                                            <option>Albania</option>
+                                            <option>Algeria</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>City</label>
+                                        <input class="form-control" type="text" placeholder="City">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>State</label>
+                                        <input class="form-control" type="text" placeholder="State">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>ZIP Code</label>
+                                        <input class="form-control" type="text" placeholder="ZIP Code">
+                                    </div>
+                                  
+                                    <div class="summary-btn">
+                                        <button type="button" class="summary" name="summary" id="summary">continue</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                          <!-- <div  class="checkout-payment" >
+                            <div class="payment-methods">
+                                <h1>Payment Methods</h1>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-1" name="payment">
+                                        <label class="custom-control-label" for="payment-1">Paypal</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-1-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-2" name="payment">
+                                        <label class="custom-control-label" for="payment-2">Payoneer</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-2-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-3" name="payment">
+                                        <label class="custom-control-label" for="payment-3">Check Payment</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-3-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-4" name="payment">
+                                        <label class="custom-control-label" for="payment-4">Direct Bank Transfer</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-4-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="payment-5" name="payment">
+                                        <label class="custom-control-label" for="payment-5">Cash on Delivery</label>
+                                    </div>
+                                    <div class="payment-content" id="payment-5-show">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout-btn">
+                                <button>Place Order</button>
+                            </div>
+                        </div> -->
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="checkout-inner">
+                            <% data.forEach((post) => { %>
+                            <div class="checkout-summary">
+                                <h1>PRICE DETAIL</h1>
+                                <!-- <p>Product Name<span>$99</span></p> -->
+                                <p>Price(<%=post.Qty%> items)<span><%=post.total%></span></p>
+                                            <p>Shipping Cost<span>₹0</span></p>
+                                            <p>Delivery Charges
+                                                <span>FREE</span></p>
+                                            <h2> Total Payable<span><%=post.total%></span></h2>
+                            </div>
+                             <%})%>
+                            <!-- <div class="checkout-payment">
+                                <div class="payment-methods">
+                                    <h1>Payment Methods</h1>
+                                    <div class="payment-method">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="payment-1" name="payment">
+                                            <label class="custom-control-label" for="payment-1">Paypal</label>
+                                        </div>
+                                        <div class="payment-content" id="payment-1-show">
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="payment-2" name="payment">
+                                            <label class="custom-control-label" for="payment-2">Payoneer</label>
+                                        </div>
+                                        <div class="payment-content" id="payment-2-show">
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="payment-3" name="payment">
+                                            <label class="custom-control-label" for="payment-3">Check Payment</label>
+                                        </div>
+                                        <div class="payment-content" id="payment-3-show">
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="payment-4" name="payment">
+                                            <label class="custom-control-label" for="payment-4">Direct Bank Transfer</label>
+                                        </div>
+                                        <div class="payment-content" id="payment-4-show">
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="payment-5" name="payment">
+                                            <label class="custom-control-label" for="payment-5">Cash on Delivery</label>
+                                        </div>
+                                        <div class="payment-content" id="payment-5-show">
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkout-btn">
+                                    <button>Place Order</button>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Checkout End -->
+        
+        <!-- Footer Start -->
+        <!-- <div class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Get in Touch</h2>
+                            <div class="contact-info">
+                                <p><i class="fa fa-map-marker"></i>123 E Store, Los Angeles, USA</p>
+                                <p><i class="fa fa-envelope"></i>email@example.com</p>
+                                <p><i class="fa fa-phone"></i>+123-456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Follow Us</h2>
+                            <div class="contact-info">
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href=""><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Company Info</h2>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Purchase Info</h2>
+                            <ul>
+                                <li><a href="#">Pyament Policy</a></li>
+                                <li><a href="#">Shipping Policy</a></li>
+                                <li><a href="#">Return Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row payment align-items-center">
+                    <div class="col-md-6">
+                        <div class="payment-method">
+                            <h2>We Accept:</h2>
+                            <img src="img/payment-method.png" alt="Payment Method" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="payment-security">
+                            <h2>Secured By:</h2>
+                            <img src="img/godaddy.svg" alt="Payment Security" />
+                            <img src="img/norton.svg" alt="Payment Security" />
+                            <img src="img/ssl.svg" alt="Payment Security" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Footer End -->
+        
+        <!-- Footer Bottom Start -->
+        <footer>
+            <%- include('footer.ejs') -%>
+        </footer>
+        <!-- Footer Bottom End -->       
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+        
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        <script src="js/magic.js"></script>
+    </body>
+</html>
