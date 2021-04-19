@@ -29,7 +29,7 @@ order.items=cart.generateArray();
 exports.add=function (req,res) {
     console.log("post payment")
     var stripe = require('stripe')(
-        'sk_test_51IZF0ZSDp7nTaKRfiyTbatMnNEBzZxuWcxH61PkfSCbPVQierBPv0bzol2ZeynTMMGSnFwNQ0LWRzKwqbtLuiMMX00lHDl9Hw0'
+        'yoursecretkeyhere'
     );
     var userId=req.session._id;
     cartData
